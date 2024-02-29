@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	_strlen(format);
+	len = _strlen(format);
 
 loop:
 	for (; bookmark != '%' && bookmart < len; format++)
