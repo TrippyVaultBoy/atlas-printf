@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib>
 #include <stdarg>
+#include "main.h"
+
 
 int _printf(const char *format, ...)
 {
@@ -42,4 +44,32 @@ loop:
 		
 		return (len);
 	}
+}
+
+
+/**
+ * _printf - prints output according to format
+ * @format: string being passed
+ * Return: char to be printed
+ */
+int _printf(const char *format, ...)
+{
+	va_list list;
+	int a = 0;
+
+	fmt_t ops[] = {
+		{"c", ch},
+		{"s", str},
+		{"d", _dec},
+		{"i", _int},
+		{"%", _per}
+		{NULL, NULL}
+	};
+
+	if (format == NULL)
+		return (-1);
+	va_start(list, format);
+	a = print_op(format, ops, list);
+	va_end(list);
+	return (a);
 }
