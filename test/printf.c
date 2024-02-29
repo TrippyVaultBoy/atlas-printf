@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib>
-#include <stdarg>
 #include "main.h"
 
 
@@ -22,23 +20,23 @@ loop:
 
 		if (format[bookmark++] == 'c')
 		{
-			_%c(va_args, char);
+			%c(va_arg, char);
 		}
 		else if (format[bookmark++] == 's')
 		{
-			_%s(va_args, char);
+			%s(va_arg, char);
 		}
 		else if (format[bookmark]++ == '%')
                 {
-                        _%%(va_args, char);
+                        %%(va_arg, char);
                 }
 		else if (format[bookmark++] == 'd')
                 {
-                        _%d(va_args, char);
+                        %d(va_arg, char);
                 }
 		else if (format[bookmark++] == 'i')
                 {
-                        _%i(va_args, char);
+                        %i(va_arg, char);
                 }
 		goto loop;
 		
@@ -58,11 +56,11 @@ int _printf(const char *format, ...)
 	int a = 0;
 
 	fmt_t ops[] = {
-		{"c", ch},
-		{"s", str},
-		{"d", _dec},
-		{"i", _int},
-		{"%", _per}
+		{"%c", _char},
+		{"%s", _str},
+		{"%d", _dec},
+		{"%i", _int},
+		{"%%", _per},
 		{NULL, NULL}
 	};
 
