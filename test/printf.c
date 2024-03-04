@@ -17,30 +17,30 @@ int _printf(const char *format, ...)
 	bookmark = 0;
 
 loop:
-	for (; bookmark != '%' && bookmart < len; format++)
+	for (; bookmark != '%' && bookmark < len; format++)
 	{
 		_putchar(format[bookmark]);
 
 
 		if (format[bookmark++] == 'c')
 		{
-			%c(va_arg, char);
+			printf_char(va_arg);
 		}
 		else if (format[bookmark++] == 's')
 		{
-			%s(va_arg, char);
+			printf_str(va_arg);
 		}
-		else if (format[bookmark]++ == '%')
+		else if (format[bookmark++] == '%')
                 {
-                        %%(va_arg, char);
+                        printf_per(void);
                 }
 		else if (format[bookmark++] == 'd')
                 {
-                        %d(va_arg, char);
+                        printf_int(va_arg);
                 }
 		else if (format[bookmark++] == 'i')
                 {
-                        %i(va_arg, char);
+                        printf_dec(va_arg);
                 }
 		goto loop;
 	}
