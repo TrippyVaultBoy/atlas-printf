@@ -8,9 +8,13 @@ int _printf(const char *format, ...)
 
 	va_list args;
 
+	int bookmark;
+
 	va_start(args, format);
 
 	len = _strlen(format);
+
+	bookmark = 0;
 
 loop:
 	for (; bookmark != '%' && bookmart < len; format++)
@@ -39,9 +43,8 @@ loop:
                         %i(va_arg, char);
                 }
 		goto loop;
-		
-		return (len);
 	}
+	return (len);
 }
 
 
@@ -50,24 +53,24 @@ loop:
  * @format: string being passed
  * Return: char to be printed
  */
-int _printf(const char *format, ...)
-{
-	va_list list;
-	int a = 0;
-
-	fmt_t ops[] = {
-		{"%c", _char},
-		{"%s", _str},
-		{"%d", _dec},
-		{"%i", _int},
-		{"%%", _per},
-		{NULL, NULL}
-	};
-
-	if (format == NULL)
-		return (-1);
-	va_start(list, format);
-	a = print_op(format, ops, list);
-	va_end(list);
-	return (a);
-}
+//int _printf(const char *format, ...)
+//{
+//	va_list list;
+//	int a = 0;
+//
+//	fmt_t ops[] = {
+//		{"%c", _char},
+//		{"%s", _str},
+//		{"%d", _dec},
+//		{"%i", _int},
+//		{"%%", _per},
+//		{NULL, NULL}
+//	};
+//
+//	if (format == NULL)
+//		return (-1);
+//	va_start(list, format);
+//	a = print_op(format, ops, list);
+//	va_end(list);
+//	return (a);
+//}
