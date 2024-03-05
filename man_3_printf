@@ -1,0 +1,40 @@
+Library Functions Manual
+
+NAME
+
+	printf
+
+LIBRARY
+
+	Standard C Library
+
+SYNOPSIS
+
+	#include <stdio.h>
+	Int printf(const char *restrict format, …);
+
+DESCRIPTION
+
+	The function printf() prints out to the standard output stdout, a string with certain format specifiers which must correspond with arguments when the function is called. Thus,
+
+	printf(“%*d”, width. num);
+
+CONVERSION SPECIFIERS
+
+A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+
+	C, the int argument is converted to an unsigned char, and the converted character is printed
+
+	S, the const char * argument is expected to be a pointer to an array of chars, the characters are to be printed up until a terminating null byte
+
+	%, a ‘%’ is written. No conversions are made.
+
+	D, i, the int argument is converted to a signed decimal and printed. 
+
+RETURN VALUE
+
+	Upon Successful return, return the number of characters printed, excluding NULL bytes
+	
+
+
+
