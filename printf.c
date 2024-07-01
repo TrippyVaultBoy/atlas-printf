@@ -36,7 +36,7 @@ int _printf(const char *format, ...) {
                     _putchar(c);
                     count++;
                     break;
-                }
+				}
                 case 's': {
 					char *s = va_arg(args, char *);
 					if (s == NULL) {
