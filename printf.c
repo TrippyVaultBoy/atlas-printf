@@ -27,9 +27,17 @@ int _printf(const char *format, ...) {
 
 	count = 0;
 
+	if (p == NULL) {
+		return -1;
+	}
+
 	for (; *p != '\0'; p++) {
 		if (*p == '%') {
             p++;
+			if (*p == '\0') {
+                va_end(args);
+                return count;
+            }
             switch (*p) {
                 case 'c': {
                     int c = va_arg(args, int);
