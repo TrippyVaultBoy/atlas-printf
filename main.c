@@ -7,6 +7,6 @@
  * Return: 0 on success, error code otherwise
  */
 int main(void) {
-	_printf("%");
+	_printf(NULL);
     return 0;
 }

@@ -27,7 +27,7 @@ int _printf(const char *format, ...) {
 
 	count = 0;
 
-	if (p == NULL) {
+	if (format == NULL) {
 		return 0;
 	}
 
