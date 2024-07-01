@@ -141,9 +141,9 @@ int _printf(const char *format, ...)
                     break;
                 }
 				case 'i': {
-                    int i = va_arg(args, int);
-                    _putchar(i);
-                    count++;
+                    int d = va_arg(args, int);
+                    _itoa(d, str);
+					count += _puts(str);
                     break;
                 }
                 case '%': {
