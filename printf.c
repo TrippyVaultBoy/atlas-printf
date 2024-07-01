@@ -46,8 +46,10 @@ int _printf(const char *format, ...) {
 					}
 					else
 					{
-                    	count += _puts(s);
-                    	break;
+						while (*s) {
+                    		_putchar(*s++);
+                    		count++;
+                		}
 					}
                 }
                 case '%': {
