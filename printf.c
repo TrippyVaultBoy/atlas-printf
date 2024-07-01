@@ -38,9 +38,16 @@ int _printf(const char *format, ...) {
                     break;
                 }
                 case 's': {
-                    char *s = va_arg(args, char *);
-                    count += _puts(s);
-                    break;
+					char *s = va_arg(args, char *);
+					if (s == NULL) {
+						_puts("(null)");
+						break;
+					}
+					else
+					{
+                    	count += _puts(s);
+                    	break;
+					}
                 }
                 case '%': {
                     _putchar('%');
