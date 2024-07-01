@@ -1,12 +1,15 @@
 #include "main.h"
 
-/* compile with: gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c */
+/** compile with: gcc -Wall -Wextra -Werror
+-pedantic -std=gnu89 -Wno-format *.c **/
 
-int _putchar(char c) {
-	return write(1, &c, 1);
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }
 
-int _puts(const char *str) {
+int _puts(const char *str)
+{
 	int count;
 
 	count = 0;
@@ -15,10 +18,11 @@ int _puts(const char *str) {
 		_putchar(*str++);
 		count++;
 	}
-	return count;
+	return (count);
 }
 
-int _printf(const char *format, ...) {
+int _printf(const char *format, ...)
+{
 	int count;
 	const char *p = format;
 	
@@ -28,7 +32,7 @@ int _printf(const char *format, ...) {
 	count = 0;
 
 	if (format == NULL) {
-		return -1;
+		return (-1);
 	}
 
 	for (; *p != '\0'; p++) {
@@ -36,7 +40,7 @@ int _printf(const char *format, ...) {
             p++;
 			if (*p == '\0') {
                 va_end(args);
-                return -1;
+                return (-1);
             }
             switch (*p) {
                 case 'c': {
@@ -79,5 +83,4 @@ int _printf(const char *format, ...) {
 	}
 
 	va_end(args);
-	return count;
-}
+	return (count);
