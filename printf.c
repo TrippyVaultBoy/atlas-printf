@@ -51,11 +51,6 @@ int _printf(const char *format, ...) {
 					}
                 }
                 case '%': {
-					p++;
-					if (*p == '\0')
-					{
-						break;
-					}
                     _putchar(*p);
                     count++;
                     break;
