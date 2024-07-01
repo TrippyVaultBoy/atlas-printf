@@ -6,7 +6,19 @@
  *
  * Return: 0 on success, error code otherwise
  */
-int main(void) {
-	_printf(NULL);
-    return 0;
+int main(void)
+{
+	int len, len2;
+	len = _printf("%");
+	len2 = printf("%");
+    printf("len: %d\n", len);
+    printf("len2: %d\n", len2);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
 }
