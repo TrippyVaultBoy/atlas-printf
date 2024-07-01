@@ -36,7 +36,7 @@ int _printf(const char *format, ...) {
             p++;
 			if (*p == '\0') {
                 va_end(args);
-                return count;
+                return -1;
             }
             switch (*p) {
                 case 'c': {
