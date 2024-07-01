@@ -21,47 +21,66 @@ int _puts(const char *str)
 	return (count);
 }
 
-int print_integer(int n)
+void reverse(char *str, int length)
 {
-	int count;
-	int negative;
-	int i;
-	int digits[10];
+	int first = 0;
+	int last = length - 1;
 
-	count = 0;
-	negative = 0;
+	while (first < last)
+	{
+		char temp = str[first];
+		str[first] = str[last];
+		str[last] = temp;
+		first++;
+		last--;
+	}
+}
+
+char* _itoa(int n, char *str)
+{
+	int i;
+	int is_negative;
+
 	i = 0;
+	is_negative = 0;
+
+	if (n == 0)
+	{
+		str[i++] = '0';
+		str[i] = '\0';
+		return str;
+	}
 
 	if (n < 0)
 	{
-		negative = 1;
+		is_negative = 1;
+		n = -n;
 	}
 
-	do
+	while (n != 0)
 	{
-		digits[i++] = n % 10;
+		int remainder = n % 10;
+		str[i++] = remainder + '0';
 		n /= 10;
-	} while (n != 0);
-
-	if (negative == 1)
-	{
-		_putchar('-');
-		count++;
 	}
 
-	while (i > 0)
+	if (is_negative)
 	{
-		_putchar(digits[--i] + '0');
-		count++;
+		str[i++] = '-';
 	}
 
-	return (count);
+	str[i] = '\0';
+
+	reverse(str, i);
+
+	return (str);
 }
 
 int _printf(const char *format, ...)
 {
 	int count;
 	const char *p = format;
+	char str[20];
 
 	va_list args;
 	va_start(args, format);
@@ -104,7 +123,8 @@ int _printf(const char *format, ...)
                 }
 				case 'd': {
                     int d = va_arg(args, int);
-                    count =+ print_integer(d);
+                    _itoa(d, str);
+					count += _puts(str);
                     break;
                 }
 				case 'i': {
