@@ -57,6 +57,9 @@ char* _itoa(int n, char *str)
 		n = -n;
 	}
 
+	if (n == -2147483648)
+        return ("-2147483648");
+
 	while (n != 0)
 	{
 		int remainder = n % 10;
