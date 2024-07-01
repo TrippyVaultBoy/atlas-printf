@@ -9,8 +9,8 @@
 int main(void)
 {
 	int len, len2;
-	len = _printf("%d", -1024);
-	len2 = printf("%d", -1024);
+	len = _printf("%d", -2147483648);
+	len2 = printf("%d", -2147483648);
     printf("len: %d\n", len);
     printf("len2: %d\n", len2);
 	fflush(stdout);

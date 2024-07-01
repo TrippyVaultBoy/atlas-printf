@@ -39,7 +39,9 @@ void reverse(char *str, int length)
 char* _itoa(int n, char *str)
 {
 	int i;
+	int j;
 	int is_negative;
+	char min_int[] = "-2147483648";
 
 	i = 0;
 	is_negative = 0;
@@ -58,7 +60,15 @@ char* _itoa(int n, char *str)
 	}
 
 	if (n == -2147483648)
-        return ("-2147483648");
+    {
+		for (j = 0; min_int[j] != '\0'; j++)
+		{
+			str[i] = min_int[j];
+			i++;
+		}
+		str[i] = '\0';
+		return str;
+	}
 
 	while (n != 0)
 	{
