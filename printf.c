@@ -28,7 +28,7 @@ int _printf(const char *format, ...) {
 	count = 0;
 
 	if (format == NULL) {
-		return 0;
+		return count;
 	}
 
 	for (; *p != '\0'; p++) {
