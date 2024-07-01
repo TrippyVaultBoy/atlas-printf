@@ -41,6 +41,7 @@ int _printf(const char *format, ...) {
 					char *s = va_arg(args, char *);
 					if (s == NULL) {
 						_puts("(null)");
+						count += 6;
 						break;
 					}
 					else
