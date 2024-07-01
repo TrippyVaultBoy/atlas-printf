@@ -25,20 +25,22 @@ int _printf(const char *format, ...)
 {
 	int count;
 	const char *p = format;
-	
+
 	va_list args;
-    va_start(args, format);
+	va_start(args, format);
 
 	count = 0;
 
-	if (format == NULL) {
+	if (format == NULL)
 		return (-1);
-	}
 
-	for (; *p != '\0'; p++) {
-		if (*p == '%') {
+	for (; *p != '\0'; p++)
+	{
+		if (*p == '%')
+		{
             p++;
-			if (*p == '\0') {
+			if (*p == '\0')
+			{
                 va_end(args);
                 return (-1);
             }
@@ -51,7 +53,8 @@ int _printf(const char *format, ...)
 				}
                 case 's': {
 					char *s = va_arg(args, char *);
-					if (s == NULL) {
+					if (s == NULL)
+					{
 						_puts("(null)");
 						count += 6;
 						break;
