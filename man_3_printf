@@ -1,0 +1,32 @@
+printf(1)                     User Manuals                    printf(1)
+
+
+NAME
+    printf - formatted output conversion
+
+SYNOPSIS
+    int printf(const char *format, ...);
+
+DESCRIPTION
+    The printf function produces an output to stdout according to the specifiers listed below. The function writes to output according to the format string which specifies the order of specifiers and arguments.
+
+OPTIONS
+     -d, -i   Converts an int argument into signed decimal notation.
+
+     -c   Converts the int argument into an unsigned char
+
+     -s   Writes the const char * argument up to a null terminating byte (\0).
+
+     -%   Writes a '%' character, no argument in converted or used
+
+FILES
+     printf.c
+          The main control file which calls other helper functions
+
+BUGS
+     No known bugs
+
+AUTHOR
+     Tanner Saint <github.com/TrippyVaultBoy>
+
+Linux                Last change: July 1 2024                      2
