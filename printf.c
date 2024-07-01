@@ -21,6 +21,43 @@ int _puts(const char *str)
 	return (count);
 }
 
+int print_integer(int n)
+{
+	int count;
+	int negative;
+	int i;
+	int digits[10];
+
+	count = 0;
+	negative = 0;
+	i = 0;
+
+	if (n < 0)
+	{
+		negative = 1;
+	}
+
+	do
+	{
+		digits[i++] = n % 10;
+		n /= 10;
+	} while (n != 0);
+
+	if (negative == 1)
+	{
+		_putchar('-');
+		count++;
+	}
+
+	while (i > 0)
+	{
+		_putchar(digits[--i] + '0');
+		count++;
+	}
+
+	return (count);
+}
+
 int _printf(const char *format, ...)
 {
 	int count;
@@ -64,6 +101,17 @@ int _printf(const char *format, ...)
                     	count += _puts(s);
                     	break;
 					}
+                }
+				case 'd': {
+                    int d = va_arg(args, int);
+                    count =+ print_integer(d);
+                    break;
+                }
+				case 'i': {
+                    int i = va_arg(args, int);
+                    _putchar(i);
+                    count++;
+                    break;
                 }
                 case '%': {
                     _putchar(*p);

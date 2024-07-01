@@ -9,8 +9,8 @@
 int main(void)
 {
 	int len, len2;
-	len = _printf("%");
-	len2 = printf("%");
+	len = _printf("%d", 1024);
+	len2 = printf("%d", 1024);
     printf("len: %d\n", len);
     printf("len2: %d\n", len2);
 	fflush(stdout);
